@@ -5,9 +5,14 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/bnb-chain/go-sdk/client/rpc"
-	"github.com/bnb-chain/go-sdk/common/types"
-	"github.com/gogo/protobuf/codec"
+	//"sync"
+
+	"github.com/binance-chain/go-sdk/client/rpc"
+	types "github.com/binance-chain/go-sdk/common/types"
+
+	//sdk "github.com/cosmos/cosmos-sdk"
+
+	"github.com/cosmos/cosmos-sdk/codec"
 )
 
 func main() {
@@ -47,11 +52,19 @@ func main() {
 			fmt.Println("Failed to decode transaction: %v", err)
 		}
 		cdc := codec.New()
-		var tx sdk.Tx
-		err = cdc.UnmarshalBinaryBare(txBytes, &tx)
-		if err != nil {
-			fmt.Println("Failed to unmarshal transaction: %v", err)
-		}
-		fmt.Printf("Decoded Transaction: %+v\n", tx)
+
+		fmt.Println("TxBytes:", txBytes)
+		fmt.Println("TxBytes:", cdc)
+
+		//var tx sdk.Tx
+		//fmt.Println("Tx:", tx)
+		/*
+			err = cdc.UnmarshalBinaryBare(txBytes, &tx)
+			if err != nil {
+				fmt.Println("Failed to unmarshal transaction: %v", err)
+			}
+			fmt.Printf("Decoded Transaction: %+v\n", tx)
+		*/
+
 	}
 }

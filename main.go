@@ -10,7 +10,8 @@ import (
 	"github.com/binance-chain/go-sdk/client/rpc"
 	types "github.com/binance-chain/go-sdk/common/types"
 
-	//sdk "github.com/cosmos/cosmos-sdk"
+	sdk "github.com/cosmos/cosmos-sdk/types"
+	//sdk "github.com/binance-chain/go-sdk/types"
 
 	"github.com/cosmos/cosmos-sdk/codec"
 )
@@ -56,15 +57,14 @@ func main() {
 		fmt.Println("TxBytes:", txBytes)
 		fmt.Println("TxBytes:", cdc)
 
-		//var tx sdk.Tx
-		//fmt.Println("Tx:", tx)
-		/*
-			err = cdc.UnmarshalBinaryBare(txBytes, &tx)
-			if err != nil {
-				fmt.Println("Failed to unmarshal transaction: %v", err)
-			}
-			fmt.Printf("Decoded Transaction: %+v\n", tx)
-		*/
+		var tx sdk.Tx
+		fmt.Println("Tx:", tx)
+
+		err = cdc.UnmarshalBinaryBare(txBytes, &tx)
+		if err != nil {
+			fmt.Println("Failed to unmarshal transaction: %v", err)
+		}
+		fmt.Printf("Decoded Transaction: %+v\n", tx)
 
 	}
 }

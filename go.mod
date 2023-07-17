@@ -4,7 +4,7 @@ go 1.20
 
 require (
 	github.com/binance-chain/go-sdk v1.2.3
-	github.com/cosmos/cosmos-sdk v0.0.0-00010101000000-000000000000
+	github.com/cosmos/cosmos-sdk v0.25.4-0.20221221115251-f9e69ff1b273
 )
 
 require (
